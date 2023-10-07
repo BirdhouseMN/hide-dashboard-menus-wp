@@ -74,9 +74,10 @@ function hide_menu_items_page_callback() {
     foreach ($menu as $menu_item) {
         if (isset($menu_item[2]) && !empty($menu_item[0]) && $menu_item[4] !== 'wp-menu-separator') {
             if ($menu_item[2] != 'options-general.php') {
-                $menu_text = preg_replace('/\d/', '', strip_tags($menu_item[0]));
+                preg_match('/[a-zA-Z\s]+/', strip_tags($menu_item[0]), $matches);
+                $menu_text = $matches[0] ?? ''; // Use the matched text or default to an empty string
                 echo '<div class="hide-menu-select-item"><label><input type="checkbox" name="hidden_admin_menu_items[]" value="' . esc_attr($menu_item[2]) . '"';
-                echo checked(in_array($menu_item[2], $hidden_items), true, false) . '> ' . esc_html($menu_text) . '</label></div>';
+                echo checked(in_array($menu_item[2], $hidden_items), true, false) . '> ' . esc_html(trim($menu_text)) . '</label></div>';
             }
         }
     }
