@@ -6,6 +6,14 @@
  * Author: Birdhouse Web Design
  */
 
+// Register the uninstall hook
+register_uninstall_hook(__FILE__, 'uninstall_hide_admin_menu_items');
+
+// Function to run when the plugin is uninstalled
+function uninstall_hide_admin_menu_items() {
+    delete_option('hidden_admin_menu_items');
+}
+
 // AJAX handling
 add_action('wp_ajax_update_hidden_items', 'update_hidden_items');
 function update_hidden_items() {

@@ -37,5 +37,3 @@ If you encounter any issues or require assistance, please don't hesitate to cont
 This plugin is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-2.0.html), which means it's open-source software and free for anyone to use and modify.
 
 ---
-
-Feel free to expand upon these sections or add any other relevant details. A clear and informative README.txt file will help users understand your plugin and how to use it effectively.
